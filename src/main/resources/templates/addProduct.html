@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Add</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<!-- Start of header container -->
+	<div class="header container" style="padding: 20px">
+		<div class="row">
+			<div class="col-sm-3">
+				<h2>FILE HANDLING</h2>
+			</div>
+			<div class="col-sm-3">
+				<h4 th:inline="text">Signed in as
+					[[${#httpServletRequest.remoteUser}]]</h4>
+			</div>
+			<div class="col -sm-3">
+				<a sec:authorize="hasAuthority('ADMIN')" href="products">Products</a><br />
+				<a sec:authorize="hasAuthority('ADMIN')" href="crafters">Crafters</a><br />
+				<a sec:authorize="hasAuthority('ADMIN')" href="users">Users</a>
+			</div>
+
+			<div class="col-sm-3">
+				<form th:action="@{logout}" method="post">
+					<input type="submit" value="Sign Out" class="btn btn-danger" />
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End of header -->
+	<form th:object="${product}" th:action="@{saveNew}" action="#"
+		method="post">
+		<div class="container" style="padding: 40px">
+			<table class="table table-striped">
+				<tr>
+					<td><h3>Add a new Product</h3></td>
+				</tr>
+				<tr>
+					<td><label for="name">Name</label> <input type="text"
+						id="name" th:field="*{name}" /></td>
+					<td th:if="${#fields.hasErrors('name')}" th:error="*{name}">
+						must be 2-50 characters long</td>
+				</tr>
+				<tr>
+					<td><label for="price">Price</label> <input type="text"
+						th:field="*{price}" /></td>
+					<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">
+						Error</td>
+				</tr>
+				<tr>
+					<td><label for="crafterlist">Crafter</label> <select
+						id="crafterlist" th:field="*{crafter}">
+							<option th:each="crafter: ${crafters}" th:value="${crafter.id}"
+								th:text="${crafter}"></option>
+					</select></td>
+					<td th:if="${#fields.hasErrors('crafter')}" th:errors="*{crafter}">
+						Error</td>
+				</tr>
+
+			</table>
+			<div>
+				<input type="submit" class="btn btn-success" value="Save"></input>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

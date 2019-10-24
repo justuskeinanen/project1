@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<form th:object="${product}" th:action="@{../save}" action="#"
+		method="post">
+		<div class="container">
+			<table class="table table-striped">
+				<tr>
+					<td><h3>Edit product</h3></td>
+				</tr>
+
+				<tr>
+					<td><label for="id">Id </label> <input type="text"
+						th:field="*{id}" size=4 readonly /></td>
+				</tr>
+
+				<tr>
+					<td><label for="name">Name</label> <input type="text"
+						id="name" th:field="*{name}" /></td>
+					<td th:if="${#fields.hasErrors('name')}" th:error="*{name}">
+						must be 2-50 characters long</td>
+				</tr>
+				<tr>
+					<td><label for="price">Price</label> <input type="text"
+						th:field="*{price}" /></td>
+					<td th:if="${#fields.hasErrors('price')}" th:errors="*{price}">
+						Error</td>
+				</tr>
+				<tr>
+					<td><label for="crafterlist">Crafter</label> <select
+						id="crafterlist" th:field="*{crafter}">
+							<option th:each="crafter: ${crafters}" th:value="${crafter.id}"
+								th:text="${crafter}"></option>
+					</select></td>
+					<td th:if="${#fields.hasErrors('crafter')}" th:errors="*{crafter}">
+						Error</td>
+				</tr>
+				<tr>
+					<td><input type="submit" class="btn btn-success" value="Save"></input>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+</html>

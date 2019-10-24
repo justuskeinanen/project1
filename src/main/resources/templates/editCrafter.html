@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<form th:object="${crafter}" th:action="@{../saveCrafter}" action="#"
+		method="post">
+		<div class="container">
+			<table class="table table-striped">
+				<tr>
+					<td><h3>Edit crafter</h3></td>
+				</tr>
+
+				<tr>
+					<td><label for="id">Id </label> <input type="text"
+						th:field="*{id}" size=4 readonly /></td>
+				</tr>
+
+				<tr>
+					<td><label for="firstName">First name</label> <input type="text"
+						id="firstName" th:field="*{firstName}" /></td>
+					<td th:if="${#fields.hasErrors('firstName')}" th:error="*{firstName}">
+						must be 1-100 characters long</td>
+				</tr>
+				<tr>
+					<td><label for="lastName">Last name</label> <input type="text"
+						th:field="*{lastName}" /></td>
+					<td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+						Error</td>
+				</tr>
+				<tr>
+					<td><input type="submit" class="btn btn-success" value="SaveCrafter"></input>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+</html>

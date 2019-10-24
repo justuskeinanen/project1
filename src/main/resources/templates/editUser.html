@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+
+	<form th:object="${user}" th:action="@{../saveUser}" action="#"
+		method="post">
+		<div class="container">
+			<table class="table table-striped">
+				<tr>
+					<td><h3>Edit user</h3></td>
+				</tr>
+
+				<tr>
+					<td><label for="username">username </label> <input type="text"
+						th:field="*{username}" size=4 readonly /></td>
+				</tr>
+
+				<tr>
+					<td><label for="role">Role:</label>
+					<select th:field="*{role}">
+							<option th:value="USER">USER</option>
+							<option th:value="ADMIN">ADMIN</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td><input type="submit" class="btn btn-success" value="Save"></input>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+</html>

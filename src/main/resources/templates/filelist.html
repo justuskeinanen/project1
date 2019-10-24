@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Files</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<!-- Start of header container -->
+	<div class="header container" style="padding: 20px">
+		<div class="row">
+			<div class="col-sm-3">
+				<h2>FILE HANDLING</h2>
+			</div>
+			<div class="col-sm-3">
+				<h4 th:inline="text">Signed in as
+					[[${#httpServletRequest.remoteUser}]]</h4>
+			</div>
+			<div class="col -sm-3">
+				<a sec:authorize="hasAuthority('ADMIN')" href="products">Products</a><br />
+				<a sec:authorize="hasAuthority('ADMIN')" href="crafters">Crafters</a><br />
+				<a sec:authorize="hasAuthority('ADMIN')" href="users">Users</a>
+			</div>
+
+			<div class="col-sm-3">
+				<form th:action="@{logout}" method="post">
+					<input type="submit" value="Sign Out" class="btn btn-danger" />
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- End of header -->
+
+	<div class="container">
+
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+			</tr>
+			<tr th:each="file: ${files}">
+				<td th:text="${file.fileName}"></td>
+				<td th:text="${file.mimeType}"></td>
+				<td><a th:href="@{/file/{id}(id=${file.id})}">Download</a></td>
+			</tr>
+		</table>
+		<a href="/">Upload</a>
+	</div>
+</body>
+</html>
+
