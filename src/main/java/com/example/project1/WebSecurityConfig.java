@@ -24,7 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.authenticated()
 				.and().formLogin().defaultSuccessUrl("/products").permitAll()
 				.and().logout().permitAll()
-				.and().csrf().disable();
+				.and().csrf().disable()
+				;
 	}
 
 	@Autowired

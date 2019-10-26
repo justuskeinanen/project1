@@ -11,7 +11,7 @@ import com.example.project1.web.ProductController;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Project1ApplicationTests {
+public class Project1ApplicationTest {
 
 	@Autowired
 	private ProductController controller;

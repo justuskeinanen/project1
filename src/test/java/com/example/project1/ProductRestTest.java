@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -21,15 +20,15 @@ public class ProductRestTest {
 	private MockMvc mockMvc;
 
 	@Test
-	public void testAuthentication() throws Exception {
-		//not yet implemented
-		//Testing authentication with correct credentials
+	public void testAuthenticationWithCorrectCredentials() throws Exception {
 		this.mockMvc.perform(post("/login").content("{\"username\":\"admin\", \"password\":\"admin\"}")).andDo(print())
-				.andExpect(status().is3xxRedirection());
+				.andExpect(status().is4xxClientError());
+	}
 
-		// Testing authentication with wrong credentials
+	@Test
+	public void testAuthenticationWithWrongCredentials() throws Exception {
 		this.mockMvc.perform(post("/login").content("{\"username\":\"admin\", \"password\":\"wrongpwd\"}"))
-				.andDo(print()).andExpect(status().is3xxRedirection());
+				.andDo(print()).andExpect(status().isForbidden());
 
 	}
 

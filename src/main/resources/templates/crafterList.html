@@ -6,6 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
 	th:href="@{/css/bootstrap.min.css}" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<!-- Start of header container -->
@@ -19,9 +28,18 @@
 					[[${#httpServletRequest.remoteUser}]]</h4>
 			</div>
 			<div class="col -sm-3">
-				<a sec:authorize="hasAuthority('ADMIN')" href="products">Products</a><br />
-				<a sec:authorize="hasAuthority('ADMIN')" href="crafters">Crafters</a><br />
-				<a sec:authorize="hasAuthority('ADMIN')" href="users">Users</a>
+				<div class="dropdown">
+					<button type="button" class="btn btn-primary dropdown-toggle"
+						data-toggle="dropdown">Categories</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="products">Products</a> <a
+							class="dropdown-item" href="crafters">Crafters</a> <a
+							class="dropdown-item" sec:authorize="hasAuthority('ADMIN')"
+							href="users">Users</a>
+					</div>
+				</div>
+
+
 			</div>
 
 			<div class="col-sm-3">
@@ -29,6 +47,7 @@
 					<input type="submit" value="Sign Out" class="btn btn-danger" />
 				</form>
 			</div>
+
 		</div>
 	</div>
 	<!-- End of header -->
@@ -58,6 +77,7 @@
 			<a href="/addCrafter" class="btn btn-success">Add a new Crafter</a>
 		</div>
 	</div>
+	
 </body>
 </html>
 
