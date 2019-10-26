@@ -35,7 +35,7 @@
 						<a class="dropdown-item" href="products">Products</a> <a
 							class="dropdown-item" href="crafters">Crafters</a> <a
 							class="dropdown-item" sec:authorize="hasAuthority('ADMIN')"
-							href="users">Users</a>
+							href="users">Users</a><a class="dropdown-item" href="/files">Files</a>
 					</div>
 				</div>
 
@@ -55,7 +55,7 @@
 		method="post">
 		<div class="container" style="padding: 40px">
 			<table class="table table-striped">
-				
+
 				<tr>
 					<td><label for="name">Name</label> <input type="text"
 						id="name" th:field="*{name}" /></td>

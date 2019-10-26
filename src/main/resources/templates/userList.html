@@ -35,7 +35,7 @@
 						<a class="dropdown-item" href="products">Products</a> <a
 							class="dropdown-item" href="crafters">Crafters</a> <a
 							class="dropdown-item" sec:authorize="hasAuthority('ADMIN')"
-							href="users">Users</a>
+							href="users">Users</a><a class="dropdown-item" href="/files">Files</a>
 					</div>
 				</div>
 
@@ -67,9 +67,11 @@
 					<td th:text="${user.role}"></td>
 
 					<td sec:authorize="hasAuthority('ADMIN')"><a
-						th:href="@{/editUser/{username}(username=${user.username})}" class="btn btn-warning">Edit</a></td>
+						th:href="@{/editUser/{username}(username=${user.username})}"
+						class="btn btn-warning">Edit</a></td>
 					<td sec:authorize="hasAuthority('ADMIN')"><a
-						th:href="@{/deleteUser/{username}(username=${user.username})}" class="btn btn-danger">Delete</a></td>
+						th:href="@{/deleteUser/{username}(username=${user.username})}"
+						class="btn btn-danger">Delete</a></td>
 			</tbody>
 		</table>
 		<div sec:authorize="hasAuthority('ADMIN')">

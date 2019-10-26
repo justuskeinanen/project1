@@ -37,7 +37,7 @@
 						<a class="dropdown-item" href="products">Products</a> <a
 							class="dropdown-item" href="crafters">Crafters</a> <a
 							class="dropdown-item" sec:authorize="hasAuthority('ADMIN')"
-							href="users">Users</a>
+							href="users">Users</a><a class="dropdown-item" href="/files">Files</a>
 					</div>
 				</div>
 
@@ -58,7 +58,7 @@
 		method="post">
 		<div class="container">
 			<table class="table table-striped">
-				
+
 
 				<tr>
 					<td><label for="id">Id </label> <input type="text"
@@ -66,20 +66,20 @@
 				</tr>
 
 				<tr>
-					<td><label for="firstName">First name</label> <input type="text"
-						id="firstName" th:field="*{firstName}" /></td>
-					<td th:if="${#fields.hasErrors('firstName')}" th:error="*{firstName}">
-						must be 1-100 characters long</td>
+					<td><label for="firstName">First name</label> <input
+						type="text" id="firstName" th:field="*{firstName}" /></td>
+					<td th:if="${#fields.hasErrors('firstName')}"
+						th:error="*{firstName}">must be 1-100 characters long</td>
 				</tr>
 				<tr>
 					<td><label for="lastName">Last name</label> <input type="text"
 						th:field="*{lastName}" /></td>
-					<td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
-						Error</td>
+					<td th:if="${#fields.hasErrors('lastName')}"
+						th:errors="*{lastName}">Error</td>
 				</tr>
 				<tr>
-					<td><input type="submit" class="btn btn-success" value="Save Crafter"></input>
-					</td>
+					<td><input type="submit" class="btn btn-success"
+						value="Save Crafter"></input></td>
 				</tr>
 			</table>
 		</div>

@@ -35,7 +35,7 @@
 						<a class="dropdown-item" href="products">Products</a> <a
 							class="dropdown-item" href="crafters">Crafters</a> <a
 							class="dropdown-item" sec:authorize="hasAuthority('ADMIN')"
-							href="users">Users</a>
+							href="users">Users</a><a class="dropdown-item" href="/files">Files</a>
 					</div>
 				</div>
 
@@ -51,8 +51,8 @@
 		</div>
 	</div>
 	<!-- End of header -->
-	<br/>
-	<br/>
+	<br />
+	<br />
 	<div class="container">
 		<form method="POST" action="/upload" enctype="multipart/form-data">
 			<input type="file" name="file" /><br /> <br /> <input
