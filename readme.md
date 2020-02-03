@@ -1,1 +1,1 @@
-<iframe src="https://haagahelia-my.sharepoint.com/personal/bgg077_myy_haaga-helia_fi/_layouts/15/Doc.aspx?sourcedoc={3ecabeda-59ee-42f2-8a34-e4ce6145c61c}&amp;action=embedview&amp;wdStartOn=1" width="476px" height="288px" frameborder="0"> This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> document, powered by <a target="_blank" href="https://office.com/webapps">Office </a> </iframe>
+https://ie3-broadcast.officeapps.live.com/m/Broadcast.aspx?Fi=3ce3784a29f35c60%5Ff3b160e6%2Ddfae%2D4aec%2Da80b%2D4aafe14da5a9%2Edocx
